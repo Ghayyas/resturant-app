@@ -1,0 +1,43 @@
+<ion-view view-title="Resturant Name">
+  <ion-content>
+    <h1>{{res.rName}}</h1>
+
+   <div class="card">
+     <div class="item item-text-wrap">
+      
+      
+   <h3> Resturant Name : {{res.rName}} </h3>  
+    <p>Resturant Address: {{res.rAddr}}</p>
+    <p>Resturant Delivery Fee: {{res.rDevFee}}</p>
+    <p>Resturant Minimum Order Charges: {{res.rMinOrderAmount}}</p>
+    <p>Resturant Rating: {{res.rRatting}}</p>
+    
+
+    
+</div>
+</div>
+<div class="card">
+  <div class="item item-text-wrap">
+      <h2> Resturant Menu Items with Price : </h2>
+    <br/>
+     <ul><li ng-repeat="res in res.rMenu">
+        
+         {{res.menu1}}
+        
+         </li></ul>
+ 
+   
+</p>
+</div>
+</div>
+<div class="card">
+  <div class="item item-text-wrap">
+      <h2> Place Order </h2>
+    <br/>
+
+ <button ui-sref="app.order-form" class="button button-block button-positive">click here to Place your Order..</button>
+  
+</div>
+</div>
+  </ion-content>
+</ion-view>
