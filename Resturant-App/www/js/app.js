@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers','firebase','starter.loginService','starter.fireRef'])
+angular.module('starter', ['ionic', 'starter.controllers','firebase','starter.loginService','starter.fireRef','naif.base64'])
 
  .run(function($ionicPlatform,$rootScope, $state) {
     
@@ -15,7 +15,7 @@ angular.module('starter', ['ionic', 'starter.controllers','firebase','starter.lo
             var firebaseToken = localStorage.getItem('fbToken');
             if(toState.loginCompulsory && !firebaseToken){
                 event.preventDefault();
-                $state.go('/login');
+                $state.go(' login');
             }
         })
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -47,47 +47,76 @@ angular.module('starter', ['ionic', 'starter.controllers','firebase','starter.lo
      controller: 'AppCtrl'
     })
   
-  .state('app.search', {
-    url: '/search',
+  .state('app.setting', {
+    url: '/setting',
     loginCompulsory: true,
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html',
-        controller: 'search'
+        templateUrl: 'templates/setting.html',
+        controller: 'settingCtrl'
       }
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
+  .state('app.cart', {
+      url: '/cart',
       loginCompulsory: true,
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
+          templateUrl: 'templates/cart.html'
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+    .state('app.profile',{
+        url: '/profile',
+        loginCompulsory: true,
+        views:{
+            'menuContent':{
+                templateUrl: 'templates/profile.html',
+                controller: 'profileCtrl'
+            }
+        }
+    })
+      .state('app.about',{
+        url: '/about',
+        loginCompulsory: true,
+        views:{
+            'menuContent':{
+                templateUrl: 'templates/about.html'
+            }
+        }
+    })
+    .state('app.home', {
+      url: '/home',
       loginCompulsory: true,
       views: {
         'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+          templateUrl: 'templates/home.html',
+          controller: 'homeCtrl'
+        }
+      }
+    })
+    .state('app.order-form', {
+      url: '/order-form',
+      loginCompulsory: true,
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/order-form.html',
+          controller: 'orderFormCtrl'
         }
       }
     })
 
-  .state('app.single', {
-    url: '/playlists/:id',
+  .state('app.selected', {
+    url: '/seleted/:id',
     loginCompulsory: true,
     views: {
       'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        templateUrl: 'templates/resturants.html',
+        controller: 'selectedCtrl'
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlist');
+  $urlRouterProvider.otherwise('/app/home');
 })

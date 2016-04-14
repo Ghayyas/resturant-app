@@ -41,7 +41,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope, refer, $firebaseArray) {
+.controller('homeCtrl', function($scope, refer, $firebaseArray) {
     
     
     var bc = refer.child("resturants")
@@ -55,12 +55,88 @@ angular.module('starter.controllers', [])
     //     rLogo: '',
     //     rDevFee: 500,
     //     rMinOrderAmount: 200,
-    //     rMenu: [{
-    //        "Chicken Karhai": "200 Rs",
-    //        "Chicken Burger": "300 Rs",
-    //        "Haleem": "700 Rs",
-    //        "Qorma": "450 Rs"
-    //     }]
+    //     rMenu:[ 
+    //        { menu1: "Chicken Karhai : 200 Rs"},
+    //        {menu1: "Chicken Burger : 300 Rs"},
+    //        {menu1: "Haleem : 700 Rs"},
+    //        {menu1: "Qorma : 450 Rs"}
+    //     ]
+        
+    // })
+    //     $scope.resturants.$add({
+    //     rName: "Kolachi",
+    //     rAddr: "Clifton 2 Dariya",
+    //     rRatting: 5,
+    //     rLogo: '',
+    //     rDevFee: 500,
+    //     rMinOrderAmount: 200,
+    //     rMenu:[ 
+    //        { menu1: "Chicken Karhai : 200 Rs"},
+    //        {menu1: "Chicken Burger : 300 Rs"},
+    //        {menu1: "Haleem : 700 Rs"},
+    //        {menu1: "Qorma : 450 Rs"}
+    //     ]
+        
+    // })
+    //     $scope.resturants.$add({
+    //     rName: "Kolachi",
+    //     rAddr: "Clifton 2 Dariya",
+    //     rRatting: 5,
+    //     rLogo: '',
+    //     rDevFee: 500,
+    //     rMinOrderAmount: 200,
+    //     rMenu:[ 
+    //        { menu1: "Chicken Karhai : 200 Rs"},
+    //        {menu1: "Chicken Burger : 300 Rs"},
+    //        {menu1: "Haleem : 700 Rs"},
+    //        {menu1: "Qorma : 450 Rs"}
+    //     ]
+        
+    // })
+    //     $scope.resturants.$add({
+    //     rName: "Kolachi",
+    //     rAddr: "Clifton 2 Dariya",
+    //     rRatting: 5,
+    //     rLogo: '',
+    //     rDevFee: 500,
+    //     rMinOrderAmount: 200,
+    //     rMenu:[ 
+    //        { menu1: "Chicken Karhai : 200 Rs"},
+    //        {menu1: "Chicken Burger : 300 Rs"},
+    //        {menu1: "Haleem : 700 Rs"},
+    //        {menu1: "Qorma : 450 Rs"}
+    //     ]
+        
+    // })
+    
+    //     $scope.resturants.$add({
+    //     rName: "dfdf",
+    //     rAddr: "dfdf",
+    //     rRatting: 5,
+    //     rLogo: '',
+    //     rDevFee: 500,
+    //     rMinOrderAmount: 200,
+    //     rMenu:[ 
+    //        {"Chicken Karhai": "200 Rs"},
+    //        {"Chicken Burger": "300 Rs"},
+    //        {"Haleem": "700 Rs"},
+    //        {"Qorma": "450 Rs"}
+    //     ]
+        
+    // })
+    //     $scope.resturants.$add({
+    //     rName: "wetrf",
+    //     rAddr: "vsrer",
+    //     rRatting: 5,
+    //     rLogo: '',
+    //     rDevFee: 500,
+    //     rMinOrderAmount: 200,
+    //     rMenu:[ 
+    //        {"Chicken Karhai": "200 Rs"},
+    //        {"Chicken Burger": "300 Rs"},
+    //        {"Haleem": "700 Rs"},
+    //        {"Qorma": "450 Rs"}
+    //     ]
         
     // })
     //     $scope.resturants.$add({
@@ -134,28 +210,50 @@ angular.module('starter.controllers', [])
  
   ];
 })
-.controller('search',function($scope,$state,$location,$window){
+.controller('settingCtrl',function($scope,$state,$location,$window){
    // var token = localStorage.getItem('fbToken');
       $scope.logout = function() {
         localStorage.removeItem('fbToken');
        // $route.reload(true);
        $window.location.reload();
 
-        $location.path('/login')
+        $location.path('/login');
     }
+    
+
 })
-.controller('PlaylistCtrl', function($scope, $stateParams, refer,$firebaseObject,$firebaseArray) {
+.controller('selectedCtrl', function($scope, $stateParams, refer,$firebaseObject,$firebaseArray) {
      
-     var bc = refer.child("resturants");
+     $scope.bc = refer.child("resturants");
        
        
     $scope.value = refer.child("resturants").child($stateParams.id);
     
-     $scope.res = $firebaseArray($scope.value);
     
-//       $scope.res.$loaded(function(success){
-      
-//        console.log('Success',success);
-//    })
+     $scope.res = $firebaseObject($scope.value);
+     $scope.arr  = $firebaseArray($scope.value);
+     $scope.file = {}
+    $scope.run = function() {
+     console.log("tyrt",$scope.file.base64);
+     $scope.arr.$add({
+         image: $scope.file.base64
+     })
+     console.log("submit");
+    }
     console.log("my Valus",$scope.res);
-});
+})
+  .controller('profileCtrl', function($scope) {
+     
+      var aaa = localStorage.getItem('userData')
+      var abc = JSON.parse(aaa) //converting string to object
+      $scope.profile = abc;
+      console.log('userProfile', abc);
+     
+  
+})
+
+.controller('orderFormCtrl',function(){
+    
+})
+
+;
