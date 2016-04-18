@@ -63,7 +63,8 @@ angular.module('starter', ['ionic', 'starter.controllers','firebase','starter.lo
       loginCompulsory: true,
       views: {
         'menuContent': {
-          templateUrl: 'templates/cart.html'
+          templateUrl: 'templates/cart.html',
+          controller:'cartCtrl'
         }
       }
     })

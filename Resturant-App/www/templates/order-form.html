@@ -3,37 +3,37 @@
       <div class="card">
  <div class="item item-text-wrap">          
 
-    <form action="">
+    <form ng-submit="createOrder()">
     
   <div class="list">
   <label class="item item-input item-floating-label">
     <span class="input-label">Enter your Name</span>
-    <input type="text" placeholder="First Name">
+    <input type="text" placeholder="First Name" ng-model="user.firstName">
   </label>
   <label class="item item-input item-floating-label">
     <span class="input-label">Last Name</span>
-    <input type="text" placeholder="Last Name">
+    <input type="text" placeholder="Last Name" ng-model="user.lastName">
   </label>
   <label class="item item-input item-floating-label">
     <span class="input-label">Email</span>
-    <input type="text" placeholder="Email">
+    <input type="email" placeholder="Email" ng-model="user.email">
   </label>
     <label class="item item-input item-floating-label">
     <span class="input-label">Enter Your Address: </span>
-    <input type="text" placeholder="Enter Your Address:">
+    <input type="text" placeholder="Enter Your Address:" ng-model="user.addr">
   </label>
       <label class="item item-input item-floating-label">
     <span class="input-label">Enter Your Phone Number: </span>
-    <input type="number" placeholder="Enter Your Fone Number:">
+    <input type="number" placeholder="Enter Your Fone Number:" ng-model="user.phoneNum">
   </label>
   
  <label class="item item-input item-floating-label">
     <span class="input-label">Enter Order Name: </span>
-    <input type="text" placeholder="Enter your Order Name">
+    <input type="text" placeholder="Enter your Order Name" ng-model="user.orderName">
   </label>
    <label class="item item-input item-floating-label">
     <span class="input-label">Enter Order quantity: </span>
-    <input type="number" placeholder="Enter Order quantity">
+    <input type="number" placeholder="Enter Order quantity" ng-model="user.orderQuantity">
   </label>
 </div>
 <input type="submit" value="Submit" class="button button-block button-positive">

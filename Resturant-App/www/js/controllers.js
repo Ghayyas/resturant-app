@@ -48,6 +48,8 @@ angular.module('starter.controllers', [])
     
     $scope.resturants = $firebaseArray(bc);
     
+    // console.log($scope.resturants);
+    
     // $scope.resturants.$add({
     //     rName: "Kolachi",
     //     rAddr: "Clifton 2 Dariya",
@@ -225,22 +227,28 @@ angular.module('starter.controllers', [])
 .controller('selectedCtrl', function($scope, $stateParams, refer,$firebaseObject,$firebaseArray) {
      
      $scope.bc = refer.child("resturants");
-       
+
        
     $scope.value = refer.child("resturants").child($stateParams.id);
     
     
+    
+    
      $scope.res = $firebaseObject($scope.value);
      $scope.arr  = $firebaseArray($scope.value);
-     $scope.file = {}
-    $scope.run = function() {
-     console.log("tyrt",$scope.file.base64);
-     $scope.arr.$add({
-         image: $scope.file.base64
-     })
-     console.log("submit");
-    }
-    console.log("my Valus",$scope.res);
+     
+     $scope.myOrder = function(id){
+         localStorage.setItem('orderID',id);
+         console.log("ID is ",id);
+     }
+     
+//    var abc = JSON.parse($scope.arr);
+    
+   
+   
+
+
+
 })
   .controller('profileCtrl', function($scope) {
      
@@ -252,8 +260,44 @@ angular.module('starter.controllers', [])
   
 })
 
-.controller('orderFormCtrl',function(){
+.controller('orderFormCtrl',function($scope,refer,$firebaseArray){
+
+     var userToken  = localStorage.getItem('fbToken');
+
+    $scope.myOrders = new Firebase(refer + '/person-orders')
+    $scope.userID  = $scope.myOrders.child(userToken); 
+    $scope.orders = $firebaseArray($scope.userID)
+    $scope.user = {}
+    $scope.createOrder = function(){
+        // console.log('index is',$scope.id);    
+             var getKey = localStorage.getItem('orderID');
+        //    var resKey = JSON.parse(getKey);
+          $scope.orders.$add({
+              firstName: $scope.user.firstName,
+              lastName : $scope.user.lastName,
+              resturantName: getKey,
+              email: $scope.user.email,
+              address: $scope.user.addr,
+              phone: $scope.user.phoneNum,
+              orderName: $scope.user.orderName,
+              orderQuantity: $scope.user.orderQuantity,
+              time: Firebase.ServerValue.TIMESTAMP
+             })
+           $scope.user = "";
+           localStorage.removeItem('orderID');
+    }
     
 })
+  .controller('cartCtrl',function($scope, $firebaseArray,refer, $firebaseObject){
+    
+     var userToken  = localStorage.getItem('fbToken');
+     $scope.myOrders = new Firebase(refer + '/person-orders')
+    $scope.userID  = $scope.myOrders.child(userToken); 
+    
+    $scope.orders = $firebaseArray($scope.userID);
 
-;
+ 
+
+
+  
+})

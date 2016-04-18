@@ -4,6 +4,8 @@
 
    <div class="card">
      <div class="item item-text-wrap">
+      <a href=""class="item item-thumbnail-left">
+      <img ng-src="{{res.rImg}}" alt="image">
       
       
    <h3> Resturant Name : {{res.rName}} </h3>  
@@ -11,7 +13,7 @@
     <p>Resturant Delivery Fee: {{res.rDevFee}}</p>
     <p>Resturant Minimum Order Charges: {{res.rMinOrderAmount}}</p>
     <p>Resturant Rating: {{res.rRatting}}</p>
-    
+    </a>
 
     
 </div>
@@ -35,7 +37,7 @@
       <h2> Place Order </h2>
     <br/>
 
- <button ui-sref="app.order-form" class="button button-block button-positive">click here to Place your Order..</button>
+ <button ui-sref="app.order-form" class="button button-block button-positive" ng-click="myOrder(res.rName)">Place Order</button>
   
 </div>
 </div>
