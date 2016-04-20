@@ -1,10 +1,10 @@
-<ion-view view-title="My Cart">
+<ion-view view-title="My Cart" class="bg-color">
   <ion-content>
     <h1>Displaying your Cart</h1>
     
 
-    <div class="card">
-   <ul class="list" ng-repeat="order in orders">
+    <div class="card" ng-repeat="order in orders">
+   <ul class="list" >
     <!--<li class="item">SNo: {{$index+1}}</li>-->
     <li class="item">Name: {{order.firstName}}</li>
     <li class="item">Order Name: {{order.orderName}}</li>

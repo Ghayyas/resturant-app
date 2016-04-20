@@ -1,4 +1,4 @@
-<ion-view view-title="Profile">
+<ion-view view-title="Profile" class="bg-color">
   <ion-content>
     
     
@@ -8,8 +8,10 @@
      <div class="item item-text-wrap">
       
       
-    <h3>Name : {{profile.facebook.displayName}} </h3>  
-     <img ng-src="{{profile.facebook.profileImageURL}}" alt="Not Image">
+    <h3 class="profile-padding">Name : {{profile.facebook.displayName}} </h3>  
+     <img ng-src="{{profile.facebook.profileImageURL}}" alt="Not Image" style="padding: 26px;float: right;margin-top: -46px;" padding>
+     <h3 class="profile-padding">Age: {{profile.facebook.cachedUserProfile.age_range.min}}</h3>
+     <h3 class="profile-padding">Gender: {{profile.facebook.cachedUserProfile.gender}}</h3>
     
     
 </div>

@@ -1,25 +1,25 @@
-<ion-modal-view>
-  <!--<ion-header-bar>
-    <h1 class="title">Login</h1>
+
+    <ion-view view-title="Login" class="login">
+
   
-  </ion-header-bar>-->
-  <ion-content>
-    <!--<form ng-submit="doLogin()">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
-        </label>
-      </div>
-    </form>-->
-    <button class="button button-block button-positive" ng-click="doLogin()">Sign me In From Facebook</button>
-    
+  <ion-content has-header="true" class="has-subheader" padding="true">
+<div></div>
+    <h3 class="res-head">Resturant Management System </h3>
+            <!--<div class="item item-image">
+            <img src="img/view.jpg" alt="Resturant">
+            </div>-->
+     
+     <center>
+         
+      <img src="img/fblogin.png" alt="facebook login" class="facebook-sign-in fbtn" ng-click="doLogin()">
+      <img src="img/button-twitter.png" alt="twitter login" class="facebook-sign-in tbtn" ng-click="doLogin()">      
+    </center>
   </ion-content>
-</ion-modal-view>
+  <div class="bar bar-footer bar-dark">
+  <button class="button button-clear"><i class="ion-social-facebook-outline ion-class"></i>
+</button>
+  <div class="title"><i class="ion-social-twitter-outline ion-class"></i></div>
+  <button class="button button-clear"><i class="ion-social-googleplus-outline ion-class"></i></button>
+</div>
+</ion-view>
+

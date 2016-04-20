@@ -1,8 +1,88 @@
 /* Empty. Add your own CSS if you like */
 
+/*
+body{
+     background: lightgrey !important;
+}       */
+/*
+/*.scroll-content {
+    background: url(../img/view.jpg) !important;
+    background-repeat: no-repeat !important;
+    background-size: contain;
+    background-position: center;
+    width: 80%;
+    height: 246px;
+    margin: auto;
+    z-index: 2;
+    position: relative;
+}*/
 
-/*.col {
-  text-align:center;
-  background-color:#eeeeee;
-border:thin gray solid;
-}   */
+@import url(http://fonts.googleapis.com/css?family=Satisfy);
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+  body{
+    background-color: #a2a2a2;
+  }
+
+.gfont{
+  font-family: 'Satisfy', cursive;
+}
+.pfont{
+  font-family: 'Raleway', sans-serif;}
+.login{
+    background-image: url(../img/girl.jpg) !important;
+    
+     background-repeat:no-repeat;
+    background-size:100% 100%;
+}
+.fbtn{
+    margin-top: 24%;
+    width: 95%;
+    margin-bottom: 3%;
+    
+}
+.tbtn{
+        
+    margin-top: 3%;     
+    width: 95%;
+    margin-bottom: 3%;
+}
+
+.res-head{
+    color: white;
+    font-family: 'Pacifico', cursive;
+    font-size: 30px; 
+    text-align: center;
+    
+}
+
+.ion-class{
+    color: white;
+    font-size: 38px;
+}
+.facebook-sign-in {
+    background-size:100% 100%;
+      border-radius: 4px;
+      font-weight: 500;
+      color: #FFF;
+      background-color: #294886;
+      border-color: #27447e; }
+ion-header-bar{
+    background-color: black !important;
+    color: white !important;
+    margin: 0px;
+}
+.ion-navicon{
+    color: white!important;
+}
+.header-item{
+    color:white !important;
+}
+.bg-color{
+    background: lightgray !important;
+}
+ion-item{
+color: black !important;
+}
+.profile-padding{
+    padding: 16px;
+}

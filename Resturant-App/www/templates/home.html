@@ -1,9 +1,9 @@
-<ion-view view-title="Home">
+<ion-view view-title="Home" class="bg-color">
   <ion-content>
     <ion-list>
       <ion-item class="item item-avatar" ng-repeat="res in resturants track by $index" href="#/app/seleted/{{res.$id}}">
       
-      <img ng-src="{{res.rImg}}" alt="image">
+      <img ng-src="{{res.rImg}}" alt="image"> 
        <h3>{{res.rName}}</h3> 
         <p>{{res.rAddr}}</p>
        </ion-item>
