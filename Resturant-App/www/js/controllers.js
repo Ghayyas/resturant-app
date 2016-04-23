@@ -1,8 +1,9 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $timeout, $firebaseArray, $state,facebookAuth,$location,$window) {
+.controller('AppCtrl', function($scope, $timeout, $firebaseArray, $state,facebookAuth,$location,$window,$ionicPopup) {
 
   $scope.loginData = {};
+
 
   $scope.doLogin = function() {
     
